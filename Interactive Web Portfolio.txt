@@ -1,0 +1,81 @@
+Hey Claude!
+
+Create me Claude.md file for this interactive websirte portfolio project, the design guidelines should be from the two existing file @front-end-skill.md or @taste-skill.md located in the folder.
+
+
+Master Prompt:
+
+Build this interactive AI-powered portfolio website using the @front-end skill.md and @taste-skill.md as your guide. Replicate the exact vibe and mechanics of https://www.toukoum.fr/ — the original "AI-native portfolio" by toukoum (Raphael Giraud).
+
+Core features to match closely:
+- Pure black/dark background (#000 or #050505)
+- Clean white/light-gray text, neon cyan/blue accents for highlights/links
+- Minimalist sans-serif typography (Geist, Inter, SF Pro, or Manrope — large headings)
+- Centered full-screen animated avatar (cartoon Memoji/3D-ish character: subtle idle breathing, blinking, smiling on reply, slight head tilt)
+- Greeting headline: "Hey, I'm [Your Name] 👋"
+- Subtitle: "AI Automation Specialist — [City], PH"
+- Chat input box prominent (bottom or mid-screen), with placeholder: "Ask me anything about my projects, skills, experience, or how I can automate your business…"
+- Floating suggestion chips on load (e.g. "Show me your best projects", "What tools do you use?", "How can we collaborate?", "Tell me a fun fact")
+- Streaming chat replies with typing indicator + avatar animation while "thinking"
+- Replies in speech bubbles (user left/plain, avatar right with slight cyan glow)
+- No static sections — all info (bio, projects, skills, testimonials, contact) revealed naturally via conversation
+- Avatar personality: friendly, witty, confident, helpful, slightly playful — uses occasional emojis 😄, always guides toward action (view project details, book a call)
+
+Tech stack (refer to Claude.MD file and below):
+- Vercel AI SDK for streaming chat (connect to Groq Llama-3.1-70B or OpenAI GPT-4o-mini for fast & cheap)
+- Framer Motion for smooth avatar & UI animations
+- lucide-react icons
+- Simple animated avatar: use animated SVG/Lottie or basic React Three Fiber if possible (fallback: emoji or static image with CSS animations for breathing/blink)
+- Deploy-ready for Vercel (include vercel.json if needed)
+
+Knowledge base — inject this as a massive SYSTEM PROMPT for AI Chat (do NOT summarize — use verbatim):
+
+You are [Name]'s personal AI avatar. You know everything about [Name] and answer questions naturally, conversationally and enthusiastically. Always stay in character.
+
+For the full details, extract resume content from this file: @your-resume-file
+
+Contact / next steps:
+I'm open to freelance consulting, full-time automation roles, or collaborations. Best way: Book a free strategy call [your calendly link or cal.com link] or email me at [your@email.com]. Let's automate your business so you can focus on growth!
+
+When replying:
+- Be concise yet informative
+- Use markdown in replies when helpful (bold, lists, code blocks for tech stacks)
+- If asked for projects/skills, list them structured
+- Always fun & engaging — end many replies with a question to continue chat
+- If off-topic, gently steer back or answer playfully
+
+Now generate the complete Next.js project codebase:
+- app/page.tsx → main chat + avatar layout
+- components/Avatar.tsx → animated character component
+- app/api/chat/route.ts → Vercel AI SDK handler with the SYSTEM PROMPT above
+- lib/prompt.ts → export const SYSTEM_PROMPT = `...` (full text block)
+- Any other necessary files (globals.css, layout.tsx, etc.)
+- Include README.md with setup: npm install, add GROQ_API_KEY or OPENAI_API_KEY in .env, npm run dev, deploy to Render
+
+Make it feel magical, fast-loading, and identical in spirit to toukoum.fr but 100% customized for [Name] the AI Automation Specialist.
+```
+
+AVATAR PROMPT (ADOBE FIREFLY):
+Convert the uploaded image to video, the subject should be rotating from left to right, make her smile while rotating
+
+Convert this avatar video @  to frames, create a folder and save the frames inside. Make sure the files are in webp.
+
+Change the avatar with the frames you created, it should be animated the following the mouse movement. On loading, the first frame should be @ ....
+
+
+ENHANCEMENTS PROMPT:
+   - Add light/dark mode toggle with proper color adaptation
+   - Reduce chatbox top padding and placeholder text
+   - Add interactive rainbow/liquid gradient effect following the mouse
+   - Effect should fade away on mouse inactivity
+   - Add liquid splash effect on mouse click
+
+PROJECTS PROMPT:
+     - Shown inline in chat when "Projects" is asked
+     - 3 project cards with screenshots, title, description, key metrics
+     - Projects:
+       1. [Project 1] → @screenshot file 1
+       2. [Project 2] → @screenshot file 2
+       3. [Project 3] → @screenshot file 3
+     - Don’t display client names on thumbnails
+     - Key metrics displayed as badges (25–30 hrs saved/week, 100% automated, etc.)
